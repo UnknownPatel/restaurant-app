@@ -118,7 +118,7 @@
 // }
 
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -138,6 +138,9 @@ import thali2 from '../img/thali2.jpg';
 import thali3 from '../img/thali3.jpg';
 import NavbarRes from './components/NavbarRes';
 import AddNav from './components/addNav';
+import MenuCard1 from './components/MenuCard1';
+import {MenuItems, Items} from './components/data1'
+import ItemCard1 from './components/ItemCard1';
 
 
 
@@ -145,58 +148,59 @@ import AddNav from './components/addNav';
 
 
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+function Menu1(props) {
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+  const [isMainData, setMainData] = useState(
+    Items.filter(element => element.itemId === 'soup01')
+  )
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired,
-};
+  useEffect(() => {
+    const menuCards = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
 
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
-}
+    function setMenuCardActive() {
+      menuCards.forEach((n) => n.classList.remove("active"));
+      this.classList.add("active");
+    }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    height: 224,
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
-  },
-}));
+    menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
+  }, [isMainData]);
 
-export default function VerticalTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const setData = (itemId) => {
+    setMainData(Items.filter(element => element.itemId === itemId))
+  }
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+// TabPanel.propTypes = {
+//   children: PropTypes.node,
+//   index: PropTypes.any.isRequired,
+//   value: PropTypes.any.isRequired,
+// };
+
+// function a11yProps(index) {
+//   return {
+//     id: `vertical-tab-${index}`,
+//     'aria-controls': `vertical-tabpanel-${index}`,
+//   };
+// }
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     flexGrow: 1,
+//     backgroundColor: theme.palette.background.paper,
+//     display: 'flex',
+//     height: 224,
+//   },
+//   tabs: {
+//     borderRight: `1px solid ${theme.palette.divider}`,
+//   },
+// }));
+
+// export default function VerticalTabs() {
+//   const classes = useStyles();
+//   const [value, setValue] = React.useState(0);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
 
 
   return (
@@ -205,8 +209,30 @@ export default function VerticalTabs() {
     <br /> amet consectetur adipisicing elit. Eaque ipsa debitis voluptate,<br /> labore sint tenetur tempora officiis! Tempore, odio exercitationem?</p>
     < NavbarRes />
     < AddNav />
-    <div className='addToCart'> </div>
-    <div className={classes.root} id="tab">
+    <div className='dishContainer'>
+      <div className="menuCard"></div>
+      <div className="rowContainer">
+        {
+          MenuItems && MenuItems.map(data => (
+            <div key={data.id} onClick = {() => setData(data.itemId)}>
+              <MenuCard1 name={data.name}
+              isActive = {data.id === 1 ? true : false }/>
+            </div>
+          ) )
+        }
+        
+      </div>
+      <div className='dishitemContainer'>
+        {
+          isMainData && isMainData.map(data => (
+            <ItemCard1 key={data.id} itemId={data.id} name={data.name} price={data.price}/>
+          ))
+        }
+        
+      </div>
+    </div>
+    {/* <div className='addToCart'> abc</div> */}
+    {/* <div className={classes.root} id="tab">
       <Tabs
         // variant="standard"
         orientation="vertical"
@@ -292,7 +318,9 @@ export default function VerticalTabs() {
         Item Seven
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni, dolorum?</p>
       </TabPanel>
-    </div>
+    </div> */}
     </>
   );
 }
+
+export default Menu1;
