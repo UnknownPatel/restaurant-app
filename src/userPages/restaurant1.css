@@ -1,0 +1,108 @@
+
+
+.container{
+    display: grid;
+
+}
+.grid {
+    /* height: 100px; */
+    /* width: 100px; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr 2fr;
+    /* grid-auto-rows: 2fr; */
+    grid-gap: 10px;
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+/* .table {
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    border: solid 4px black;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+} */
+.table1 {
+    display: grid;
+    height: 150px;
+    grid-template-columns: repeat(2, auto);
+    border: solid 4px black;
+    background-color: isActive[color];
+    cursor: pointer;
+    /* grid-template-rows: auto auto; */
+}
+.table2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: auto auto;
+    border: solid 4px black;
+    cursor: pointer;
+
+}
+.table3 {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto auto;
+    border: solid 4px black;
+    cursor: pointer;
+
+}
+.table4 {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: auto auto;
+    border: solid 4px black;
+    cursor: pointer;
+
+}
+.abc {
+   
+    border: solid 2px black;
+}
+.abc2 {
+    
+    border: solid 2px black;
+}
+.abc3 {
+    
+    border: solid 2px black;
+}
+.abc4 {
+    
+    border: solid 2px black;
+}
+
+
+/* <div className='grid'>
+        <div className='table1' onClick={() => changeColor(color)}>
+          <div className='abc'></div>
+          <div className='abc'></div>
+        </div>
+        <div className='table2'>
+          <div className='abc2'></div>
+          <div className='abc2'></div>
+          <div className='abc2'></div>
+          <div className='abc2'></div>
+        </div>
+        <div className='table3'>
+          <div className='abc3'></div>
+          <div className='abc3'></div>
+          <div className='abc3'></div>
+          <div className='abc3'></div>
+          <div className='abc3'></div>
+          <div className='abc3'></div>
+        </div>
+        <div className='table4'>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+          <div className='abc4'></div>
+        </div>
+      </div> */
