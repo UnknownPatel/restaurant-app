@@ -141,6 +141,9 @@ import AddNav from './components/addNav';
 import MenuCard1 from './components/MenuCard1';
 import {MenuItems, Items} from './components/data1'
 import ItemCard1 from './components/ItemCard1';
+import CartItem1 from './components/CartItem1';
+import SubMenuContainer1 from './components/SubMenuContainer1';
+import { useStateValue } from './components/StateProvider';
 
 
 
@@ -152,7 +155,9 @@ function Menu1(props) {
 
   const [isMainData, setMainData] = useState(
     Items.filter(element => element.itemId === 'soup01')
-  )
+  );
+
+  const [{cart}, dispatch] = useStateValue();
 
   useEffect(() => {
     const menuCards = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
@@ -163,7 +168,7 @@ function Menu1(props) {
     }
 
     menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
-  }, [isMainData]);
+  }, [isMainData, cart]);
 
   const setData = (itemId) => {
     setMainData(Items.filter(element => element.itemId === itemId))
@@ -208,7 +213,7 @@ function Menu1(props) {
     <p id="head">Gordhan Thal <br />Lorem ipsum dolor sit,
     <br /> amet consectetur adipisicing elit. Eaque ipsa debitis voluptate,<br /> labore sint tenetur tempora officiis! Tempore, odio exercitationem?</p>
     < NavbarRes />
-    < AddNav />
+    {/* < AddNav /> */}
     <div className='dishContainer'>
       <div className="menuCard"></div>
       <div className="rowContainer">
@@ -230,6 +235,36 @@ function Menu1(props) {
         }
         
       </div>
+    </div>
+    <div className='rightMenu'>
+      {!cart ? (<div></div>) : ( 
+      
+        <div className="cartCheckOutContainer">
+            <SubMenuContainer1 name={"Carts Items"}/>
+          <div className="cartContainer">
+
+            <div className="cartItems">
+              {
+                cart && cart.map(data => {
+                  <CartItem1 
+                  key = {data.id}
+                  itemId = {data.id}
+                  name={"data.name"}
+                  price = {data.price}
+              />
+                })
+              }
+              
+            </div>
+          </div>
+          <div className="totalSection">
+            <h3>Total</h3>
+            <p><span>$ </span>100
+            </p>
+          </div>
+          <button className="checkOut">Check Out</button>
+        </div>
+     ) }
     </div>
     {/* <div className='addToCart'> abc</div> */}
     {/* <div className={classes.root} id="tab">

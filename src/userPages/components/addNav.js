@@ -14,7 +14,7 @@ const AddNav = () => {
             
           </div>
           <div className='nav__right'>
-            <Link to="/cart">
+            <Link to="/cart1">
                 <div className='basket'>
                     <BsFillBagFill className='cart_icon'/>
                     <span>4</span>

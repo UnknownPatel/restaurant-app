@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 
 function NavbarRes() {
+
+  useEffect(() => {
+    const toggleIcon = document.querySelector(".toggleMenu");
+    toggleIcon.addEventListener("click", () => {
+      document.querySelector(".rightMenu").classList.toggle("active");
+    });
+  }, []);
+
   return (
     <div>
       <Navbar bg="secondary" variant="dark">
@@ -12,6 +21,9 @@ function NavbarRes() {
             <Nav.Link href="">Order Online</Nav.Link>
             <Nav.Link href="">Reviews</Nav.Link>
             <Nav.Link href=""></Nav.Link>
+            <div className='toggleMenu'>
+              <BarChartIcon className='toggleIcon'/>
+            </div>
           </Nav>
         </Container>
       </Navbar>

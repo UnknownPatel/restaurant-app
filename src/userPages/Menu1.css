@@ -170,3 +170,128 @@
   color: #ff0000;
   filter: drop-shadow(0px 0px 8px #ff0000); 
 }
+
+.rightMenu{
+  width: 350px;
+  height: calc(100% - 55px);
+  background: gray;
+  position: fixed;
+  right: 0;
+  top: 182px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  transform: translateX(200%);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.rightMenu.active{
+  transform: translateX(0%);
+}
+
+.cartCheckOutContainer{
+  width: 100px;
+  min-width: 320px;
+}
+
+.cartContainer{
+  width: 100%;
+  min-height: 150px;
+  max-height: 280px;
+  margin-top: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.cartContainer::-webkit-scrollbar{
+  display: none;
+}
+
+.cartItem{
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+.cartItem .itemSection {
+  margin-left: 10px;
+}
+.cartItem .itemSection .itemName{
+  font-size: 16px;
+  color: black;
+}
+.cartItem .itemSection .itemQuantity{
+  font-size: 16px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 120px;
+}
+.cartItem .itemSection .itemQuantity span{
+  color: #fff; 
+}
+.cartItem .itemSection .itemQuantity .quantity{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 60px;
+}
+.cartItem .itemSection .itemQuantity .quantity .itemRemove,
+.cartItem .itemSection .itemQuantity .quantity .itemAdd{
+  color: black;
+  font-size: 24px;
+}
+
+.cartItem .itemPrice{
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  margin-left: auto;
+}
+
+.cartItem .itemPrice .dolorSign{
+  font-size: 12px;
+  color: black;
+}
+.cartItem .itemPrice .itemPriceValue{
+  font-size: 16px;
+  color: black;
+}
+
+.totalSection{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  margin: 15px 0px;
+}
+.totalSection h3{
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+.totalSection p{
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+.totalSection p span{
+  font-size: 14px;
+  color: black;
+}
+
+.checkOut{
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 10px 20px;
+  background: #ff0000;
+  border-radius: 100vw;
+  color: #faf9fb;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}

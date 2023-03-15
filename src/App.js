@@ -10,7 +10,7 @@ import Restaurant3 from './userPages/restaurant3';
 import Restaurant4 from './userPages/restaurant4';
 import UserHome from './user/userHome';
 import Menu1 from './userPages/Menu1';
-import Cart from './userPages/cart';
+import Cart1 from './userPages/cart1';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
         <Route path='/restaurant3' element={<Restaurant3/>}/>
         <Route path='/restaurant4' element={<Restaurant4/>}/>
         <Route path="/Menu1" element={<Menu1 />}/>
-        <Route path="/cart" element={<Cart />}/>
+        <Route path="/cart1" element={<Cart1 />}/>
       </Routes>
       </BrowserRouter>
     </div>
