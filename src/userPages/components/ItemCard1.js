@@ -20,7 +20,6 @@ function ItemCard1({ name, price, itemId }) {
         dispatch({
           type: actionType.SET_CART,
           cart: cartData,
-          
         })
       }
     }, [isCart]);

@@ -237,7 +237,32 @@ function Menu1(props) {
       </div>
     </div>
     <div className='rightMenu'>
-      {!cart ? (<div></div>) : ( 
+    {!cart ? (
+            <div className="addSomeItem">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2FemptyCart.png?alt=media&token=50b733d4-cdd9-4025-bffe-8efa4066ca24"
+                alt=""
+                className="emptyCart"
+              />
+            </div>
+          ) : (
+            <div className="cartCheckOutContianer">
+              <div className="cartContainer">
+                <SubMenuContainer1 />
+
+                <div className="cartItems">
+                  {cart &&
+                    cart.map((data) => (
+                      <CartItem1
+                        key={data.id}
+                        itemId={data.id}
+                        name={data.name}
+                        imgSrc={data.imgSrc}
+                        qty={"4"}
+                        price={data.price}
+                      />
+                    ))}
+      {/* {!cart ? (<div></div>) : ( 
       
         <div className="cartCheckOutContainer">
             <SubMenuContainer1 name={"Carts Items"}/>
@@ -249,11 +274,11 @@ function Menu1(props) {
                   <CartItem1 
                   key = {data.id}
                   itemId = {data.id}
-                  name={"data.name"}
+                  name={data.name}
                   price = {data.price}
               />
                 })
-              }
+              } */}
               
             </div>
           </div>

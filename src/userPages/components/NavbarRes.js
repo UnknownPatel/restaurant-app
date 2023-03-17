@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useStateValue } from './StateProvider';
 
 
 function NavbarRes() {
+  const [{ cart }, dispatch] = useStateValue();
 
   useEffect(() => {
     const toggleIcon = document.querySelector(".toggleMenu");
@@ -11,6 +14,13 @@ function NavbarRes() {
       document.querySelector(".rightMenu").classList.toggle("active");
     });
   }, []);
+
+  // useEffect(() => {
+  //   const toggleIcon = document.querySelector(".toggleMenu");
+  //   toggleIcon.addEventListener("click", () => {
+  //     document.querySelector(".rightMenu").classList.toggle("active");
+  //   });
+  // }, []);
 
   return (
     <div>
@@ -23,6 +33,12 @@ function NavbarRes() {
             <Nav.Link href=""></Nav.Link>
             <div className='toggleMenu'>
               <BarChartIcon className='toggleIcon'/>
+            </div>
+            <div className="shoppingCart">
+              <ShoppingCartIcon className="cart" />
+              <div className={`${!cart ? "noCartItem" : "cart_content"}`}>
+                <p>{cart ? cart.length : ""}</p>
+              </div>
             </div>
           </Nav>
         </Container>
