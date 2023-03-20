@@ -9,8 +9,8 @@ let cartItems = [];
 function CartItem1({name, price, itemId}) {
 
   const [qty, setQty] = useState(1);
-  const [{cart}, dispatch] = useStateValue();
   const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
+  const [{cart, total }, dispatch] = useStateValue();
 
   useEffect(() => {
     cartItems = cart;
@@ -18,8 +18,8 @@ function CartItem1({name, price, itemId}) {
   }, [qty]);
 
   const updateQuantity = (action, id) => {
-    if(action === 'add'){
-      setQty(qty + 1)
+    if(action == 'add'){
+      setQty(qty + 1);
     }else{
       if(qty == 1){
         cartItems.pop(id);
@@ -27,8 +27,9 @@ function CartItem1({name, price, itemId}) {
           type: actionType.SET_CART,
           cart: cartItems,
         });
+      }else{
+        setQty(qty - 1);
       }
-      setQty(qty - 1);
     }
   }
 
@@ -47,7 +48,7 @@ function CartItem1({name, price, itemId}) {
       </div>
 
       <p className="itemPrice">
-        <span className="dolorSign">$ </span>
+        <span className="dolorSign">$</span>{" "}
         <span className="itemPriceValue">{itemPrice}</span>
       </p>
     </div>

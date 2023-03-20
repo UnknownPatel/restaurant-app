@@ -157,7 +157,8 @@ function Menu1(props) {
     Items.filter(element => element.itemId === 'soup01')
   );
 
-  const [{cart}, dispatch] = useStateValue();
+  const [{cart, total}, dispatch] = useStateValue();
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     const menuCards = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
@@ -168,7 +169,7 @@ function Menu1(props) {
     }
 
     menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
-  }, [isMainData, cart]);
+  }, [isMainData, cart, total, totalPrice]);
 
   const setData = (itemId) => {
     setMainData(Items.filter(element => element.itemId === itemId))
@@ -284,7 +285,7 @@ function Menu1(props) {
           </div>
           <div className="totalSection">
             <h3>Total</h3>
-            <p><span>$ </span>100
+            <p><span>$ </span> {total}
             </p>
           </div>
           <button className="checkOut">Check Out</button>
