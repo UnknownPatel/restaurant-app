@@ -40,9 +40,9 @@ function CartItem1({name, price, itemId}) {
         <div className="itemQuantity">
           <span>x {qty}</span>
           <div className="quantity">
-              <RemoveIcon className='itemRemove' onClick={() => updateQuantity('remove', itemId)}/>
+              <RemoveIcon className='itemRemove' onClick={() => updateQuantity("remove", itemId)}/>
 
-              <AddIcon className='itemAdd' onClick={() => updateQuantity('add', itemId)}/>
+              <AddIcon className='itemAdd' onClick={() => updateQuantity("add", itemId)}/>
           </div>
         </div>
       </div>

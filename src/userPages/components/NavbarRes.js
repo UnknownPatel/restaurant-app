@@ -3,7 +3,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useStateValue } from './StateProvider';
-
+import '../Menu1.css';
 
 function NavbarRes() {
   const [{ cart }, dispatch] = useStateValue();
@@ -31,14 +31,14 @@ function NavbarRes() {
             <Nav.Link href="">Order Online</Nav.Link>
             <Nav.Link href="">Reviews</Nav.Link>
             <Nav.Link href=""></Nav.Link>
-            <div className='toggleMenu'>
-              <BarChartIcon className='toggleIcon'/>
-            </div>
             <div className="shoppingCart">
               <ShoppingCartIcon className="cart" />
               <div className={`${!cart ? "noCartItem" : "cart_content"}`}>
                 <p>{cart ? cart.length : ""}</p>
               </div>
+            </div>
+            <div className='toggleMenu'>
+              <BarChartIcon className='toggleIcon'/>
             </div>
           </Nav>
         </Container>

@@ -119,25 +119,25 @@
 
 
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+// import PropTypes from 'prop-types';
+// import { makeStyles } from '@material-ui/core/styles';
+// import Tabs from '@material-ui/core/Tabs';
+// import Tab from '@material-ui/core/Tab';
+// import Typography from '@material-ui/core/Typography';
+// import Box from '@material-ui/core/Box';
 import './Menu1.css';
 // import NavbarRes from './components/NavbarRes';
-import soup1 from '../img/soup1.jpg';
-import soup2 from '../img/soup2.jpg';
-import soup3 from '../img/soup3.jpg';
-import main1 from '../img/main1.jpg';
-import main2 from '../img/main2.jpg';
-import main3 from '../img/main3.jpg';
-import thali1 from '../img/thali1.jpg';
-import thali2 from '../img/thali2.jpg';
-import thali3 from '../img/thali3.jpg';
+// import soup1 from '../img/soup1.jpg';
+// import soup2 from '../img/soup2.jpg';
+// import soup3 from '../img/soup3.jpg';
+// import main1 from '../img/main1.jpg';
+// import main2 from '../img/main2.jpg';
+// import main3 from '../img/main3.jpg';
+// import thali1 from '../img/thali1.jpg';
+// import thali2 from '../img/thali2.jpg';
+// import thali3 from '../img/thali3.jpg';
 import NavbarRes from './components/NavbarRes';
-import AddNav from './components/addNav';
+// import AddNav from './components/addNav';
 import MenuCard1 from './components/MenuCard1';
 import {MenuItems, Items} from './components/data1'
 import ItemCard1 from './components/ItemCard1';
@@ -151,7 +151,7 @@ import { useStateValue } from './components/StateProvider';
 
 
 
-function Menu1(props) {
+function Menu1() {
 
   const [isMainData, setMainData] = useState(
     Items.filter(element => element.itemId === 'soup01')
@@ -161,14 +161,21 @@ function Menu1(props) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    const menuCards = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
+    const menuCard = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
 
     function setMenuCardActive() {
-      menuCards.forEach((n) => n.classList.remove("active"));
+      menuCard.forEach((n) => n.classList.remove("active"));
       this.classList.add("active");
     }
 
-    menuCards.forEach(n => n.addEventListener('click', setMenuCardActive))
+    menuCard.forEach(n => n.addEventListener('click', setMenuCardActive));
+
+    //
+    // let totalPrice = cart.reduce(function (accumulator, item) {
+    //   return accumulator + item.qty * item.price;
+    // }, 0);
+    // setTot(totalPrice);
+    // console.log(tot);
   }, [isMainData, cart, total, totalPrice]);
 
   const setData = (itemId) => {

@@ -5,8 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { StateProvider } from './userPages/components/StateProvider';
-import reducer from './userPages/components/reducer';
-import { initialState } from './userPages/components/reducer';
+// import reducer from './userPages/components/reducer';
+import reducer, { initialState } from './userPages/components/reducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +14,8 @@ root.render(
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -177,7 +177,7 @@
   background: gray;
   position: fixed;
   right: 0;
-  top: 182px;
+  top: 167px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -296,4 +296,33 @@
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+.shoppingCart {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shoppingCart .cart {
+  /* font-size: 30px; */
+  color: black;
+}
+
+.shoppingCart .cart_content {
+  width: 20px;
+  height: 20px;
+  color: #ff0000; 
+  /* background: #f8901c; */
+  border-radius: 100%;
+  min-width: 20px;
+  min-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0px;
 }
