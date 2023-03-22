@@ -1,6 +1,6 @@
 export const initialState = {
-    cart: null,
-    total: null,
+    cart: [],
+    total: 0,
   };
   
   export const actionType = {

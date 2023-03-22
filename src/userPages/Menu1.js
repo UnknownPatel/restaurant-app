@@ -11,7 +11,7 @@ import SubMenuContainer1 from './components/SubMenuContainer1';
 import { useStateValue } from './components/StateProvider';
 
 
-
+var total ;
 
 function Menu1() {
 
@@ -20,9 +20,10 @@ function Menu1() {
   );
 
   const [{cart, total}, dispatch] = useStateValue();
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState();
 
   useEffect(() => {
+    
     const menuCard = document.querySelector('.rowContainer').querySelectorAll('.rowMenuCard');
 
     function setMenuCardActive() {
@@ -31,6 +32,23 @@ function Menu1() {
     }
 
     menuCard.forEach(n => n.addEventListener('click', setMenuCardActive));
+    
+    
+    // let sum = cart.reduce(function(accumulator, item) {
+    //   console.log(item.price+"PRICE")
+    //   return accumulator + item.qty * item.price;
+    // },0);
+    // setTotalPrice(sum);
+
+    let price = 0;
+    for (let index = 0;index < cart.length;index++){
+      price += cart[index].price
+    }
+    console.log(price);
+    setTotalPrice(price);
+   
+    // setTotalPrice((cart.reduce((a,v) => a = a + v.price, 0));
+    //data.reduce((total, currentValue) => total = total + currentValue.prix,0);
 
     //
     // let totalPrice = cart.reduce(function (accumulator, item) {
@@ -93,7 +111,6 @@ function Menu1() {
                         key={data.id}
                         itemId={data.id}
                         name={data.name}
-                        imgSrc={data.imgSrc}
                         qty={"4"}
                         price={data.price}
                       />
@@ -102,7 +119,7 @@ function Menu1() {
           </div>
           <div className="totalSection">
             <h3>Total</h3>
-            <p><span>$ </span> {total}
+            <p><span>$ </span> {totalPrice}
             </p>
           </div>
           <button className="checkOut">Check Out</button>
