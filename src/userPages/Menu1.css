@@ -174,7 +174,7 @@
 .rightMenu{
   width: 350px;
   height: calc(100% - 55px);
-  background: gray;
+  background: #6C757D;
   position: fixed;
   right: 0;
   top: 167px;

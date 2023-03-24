@@ -11,7 +11,7 @@ import SubMenuContainer1 from './components/SubMenuContainer1';
 import { useStateValue } from './components/StateProvider';
 
 
-var total ;
+var total;
 
 function Menu1() {
 
@@ -40,23 +40,19 @@ function Menu1() {
     // },0);
     // setTotalPrice(sum);
 
-    let price = 0;
+    let total = 0;
     for (let index = 0;index < cart.length;index++){
-      price += cart[index].price
+      total += cart[index].price
     }
-    console.log(price);
-    setTotalPrice(price);
-   
-    // setTotalPrice((cart.reduce((a,v) => a = a + v.price, 0));
-    //data.reduce((total, currentValue) => total = total + currentValue.prix,0);
-
+    console.log(total);
+    setTotalPrice(total);
     //
     // let totalPrice = cart.reduce(function (accumulator, item) {
     //   return accumulator + item.qty * item.price;
     // }, 0);
     // setTot(totalPrice);
     // console.log(tot);
-  }, [isMainData, cart, total, totalPrice]);
+  }, [isMainData, cart, total]);
 
   const setData = (itemId) => {
     setMainData(Items.filter(element => element.itemId === itemId))

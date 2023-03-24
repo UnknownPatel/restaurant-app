@@ -9,18 +9,18 @@ function NavbarRes() {
   const [{ cart }, dispatch] = useStateValue();
 
   useEffect(() => {
-    const toggleIcon = document.querySelector(".toggleMenu");
+    const toggleIcon = document.querySelector(".toggleIcon");
     toggleIcon.addEventListener("click", () => {
       document.querySelector(".rightMenu").classList.toggle("active");
     });
   }, []);
 
-  // useEffect(() => {
-  //   const toggleIcon = document.querySelector(".toggleMenu");
-  //   toggleIcon.addEventListener("click", () => {
-  //     document.querySelector(".rightMenu").classList.toggle("active");
-  //   });
-  // }, []);
+  useEffect(() => {
+    const toggleIcon = document.querySelector(".cart");
+    toggleIcon.addEventListener("click", () => {
+      document.querySelector(".rightMenu").classList.toggle("active");
+    });
+  }, []);
 
   return (
     <div>
